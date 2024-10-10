@@ -167,11 +167,7 @@ game.States.play = function () {
 		// replayBtn.anchor.setTo(0.5, 0);
 		this.gameOverGroup.y = 30;
 
-		Telegram.WebApp.MainButton.setText('Submit score').show().onClick(function () {
-			const data = `submit score: ${game.bestScore}`;
-			Telegram.WebApp.sendData(data);
-			Telegram.WebApp.close();
-		});
+		submitScore(game.bestScore);
 	}
 
 	this.generatePipes = function (gap) { // Generate pipes

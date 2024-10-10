@@ -1,5 +1,5 @@
-var webApp = window.Telegram.WebApp;
-var tele_user = webApp.WebAppUser;
+
+var tele_user = window.Telegram.WebApp.initDataUnsafe;
 userEl = document.getElementById('usr-info');
 userEl.innerHTML = JSON.stringify(tele_user);
 

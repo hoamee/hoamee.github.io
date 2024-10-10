@@ -166,6 +166,13 @@ game.States.play = function () {
 		scoreboard.anchor.setTo(0.5, 0);
 		replayBtn.anchor.setTo(0.5, 0);
 		this.gameOverGroup.y = 30;
+
+		Telegram.WebApp.MainButton.setText('Submit score').show().onClick(function () {
+			var dataUnsafe = Telegram.WebApp.initDataUnsafe;
+			const data = JSON.stringify(`user ${dataUnsafe.user.username} submit score: ${this.score}`);
+			Telegram.WebApp.sendData(data);
+			Telegram.WebApp.close();
+		});
 	}
 
 	this.generatePipes = function (gap) { // Generate pipes

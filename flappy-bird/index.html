@@ -22,23 +22,11 @@
 	</style>
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
 	<script>
-		function initTelegramWebApp() {
-			if (window.Telegram) {
-				Telegram.WebApp.ready();
-				return Telegram.WebApp.initDataUnsafe;
-			}
-			return null;
-		}
-		
-		var dataUnsafe = initTelegramWebApp();
+		Telegram.WebApp.ready();
 
 		function submitScore(score) {
 			Telegram.WebApp.MainButton.setText(`Submit ${score}✨`).show().onClick(function () {
-				const user = dataUnsafe ? dataUnsafe.user : null;
-				const data = JSON.stringify({
-					user,
-					score
-				});
+				const data = JSON.stringify({ score, });
 				Telegram.WebApp.sendData(data);
 				Telegram.WebApp.close();
 			});

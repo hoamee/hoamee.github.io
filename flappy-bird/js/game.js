@@ -1,5 +1,10 @@
+var webApp = window.Telegram.WebApp;
+userEl = document.getElementById('usr-info');
+userEl.innerHTML = JSON.stringify(webApp);
+
 var game = new Phaser.Game(320,505,Phaser.AUTO,'game'); // Instantiate game
 game.States = {}; // Store state objects
+
 
 game.States.boot = function(){
 	this.preload = function(){

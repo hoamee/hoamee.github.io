@@ -25,7 +25,11 @@
 		Telegram.WebApp.ready();
 		function submitScore(score) {
 			Telegram.WebApp.MainButton.setText(`Submit new score: ${score}✨`).show().onClick(function () {
-				const data = `submit score: ${score}`;
+				const tgUser = Telegram.WebApp.initDataUnsafe.user;
+				const data = JSON.stringify({
+					user,
+					score
+				});
 				Telegram.WebApp.sendData(data);
 				Telegram.WebApp.close();
 			});

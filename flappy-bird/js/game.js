@@ -168,7 +168,7 @@ game.States.play = function () {
 		this.gameOverGroup.y = 30;
 
 		Telegram.WebApp.MainButton.setText('Submit score').show().onClick(function () {
-			const data = `submit score: ${this.score}`;
+			const data = `submit score: ${game.bestScore}`;
 			Telegram.WebApp.sendData(data);
 			Telegram.WebApp.close();
 		});

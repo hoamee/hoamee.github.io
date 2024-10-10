@@ -159,17 +159,16 @@ game.States.play = function () {
 		var scoreboard = this.gameOverGroup.create(game.width / 2, 70, 'score_board'); // Scoreboard
 		var currentScoreText = game.add.bitmapText(game.width / 2 + 60, 105, 'flappy_font', this.score + '', 20, this.gameOverGroup); // Current score
 		var bestScoreText = game.add.bitmapText(game.width / 2 + 60, 153, 'flappy_font', game.bestScore + '', 20, this.gameOverGroup); // Best score
-		var replayBtn = game.add.button(game.width / 2, 210, 'btn', function () { // Replay button
-			game.state.start('play');
-		}, this, null, null, null, null, this.gameOverGroup);
+		// var replayBtn = game.add.button(game.width / 2, 210, 'btn', function () { // Replay button
+		// 	game.state.start('play');
+		// }, this, null, null, null, null, this.gameOverGroup);
 		gameOverText.anchor.setTo(0.5, 0);
 		scoreboard.anchor.setTo(0.5, 0);
-		replayBtn.anchor.setTo(0.5, 0);
+		// replayBtn.anchor.setTo(0.5, 0);
 		this.gameOverGroup.y = 30;
 
 		Telegram.WebApp.MainButton.setText('Submit score').show().onClick(function () {
-			var dataUnsafe = Telegram.WebApp.initDataUnsafe;
-			const data = JSON.stringify(`user ${dataUnsafe.user.username} submit score: ${this.score}`);
+			const data = `submit score: ${this.score}`;
 			Telegram.WebApp.sendData(data);
 			Telegram.WebApp.close();
 		});

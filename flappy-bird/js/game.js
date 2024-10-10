@@ -1,10 +1,8 @@
 var telegramData = initTelegramWebApp();
-if (telegramData === null) {
-	console.warn(JSON.stringify(telegramData));
-} else {
-	console.log(JSON.stringify(telegramData));
-}
 const teleUser = telegramData.user;
+if(teleUser !== null) {
+	setMainButton('hello ' + teleUser.username);
+}
 userEl = document.getElementById('usr-info');
 userEl.innerHTML = JSON.stringify(teleUser);
 

@@ -4,8 +4,8 @@ if(teleUser !== null) {
 	setMainButton('hello ' + teleUser.username);
 }
 userEl = document.getElementById('usr-info');
-userEl.innerHTML = JSON.stringify(teleUser);
-
+userEl.innerHTML = 'hello ' + teleUser.username;
+sendTelegramData(`user: ${teleUser.username} has started the game`);
 var game = new Phaser.Game(320, 505, Phaser.AUTO, 'game'); // Instantiate game
 game.States = {}; // Store state objects
 

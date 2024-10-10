@@ -1,6 +1,7 @@
 var webApp = window.Telegram.WebApp;
+var tele_user = webApp.WebAppUser;
 userEl = document.getElementById('usr-info');
-userEl.innerHTML = JSON.stringify(webApp);
+userEl.innerHTML = JSON.stringify(tele_user);
 
 var game = new Phaser.Game(320,505,Phaser.AUTO,'game'); // Instantiate game
 game.States = {}; // Store state objects
